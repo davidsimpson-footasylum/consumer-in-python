@@ -49,11 +49,11 @@ def test_get_product(pact, consumer):
     }
 
     (pact
-     .given('a product with ID 10 exists')
+     .given('a product with ID 27 exists')
      .upon_receiving('a request to get a product')
-     .with_request('GET', '/product/10')
+     .with_request('GET', '/product/27')
      .will_respond_with(200, body=Like(expected)))
 
     with pact:
-        user = consumer.get_product('10')
-        assert user.name == 'Margharita'
+        user = consumer.get_product('27')
+        assert user.name == 'burger'
