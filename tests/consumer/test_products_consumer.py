@@ -51,7 +51,7 @@ def test_get_product(pact, consumer):
     (pact
      .given('a product with ID 27 exists')
      .upon_receiving('a request to get a product')
-     .with_request('GET', '/product/27')
+     .with_request('GET', '/product')
      .will_respond_with(200, body=Like(expected)))
 
     with pact:
