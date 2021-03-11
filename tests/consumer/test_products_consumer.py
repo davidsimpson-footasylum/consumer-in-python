@@ -41,11 +41,16 @@ def pact(request):
         print('stop service')
         pact.stop_service()
 
-def test_get_product(pact, consumer):
+# def test_get_product(pact, consumer):
+    # expected = {
+        # 'id': "27",
+        # 'name': 'Margharita',
+        # 'type': 'Pizza'
+   def test_get_product(pact, consumer):
     expected = {
         'id': "27",
-        'name': 'Margharita',
-        'type': 'Pizza'
+        'name': 'burger',
+        'type': 'food'
     }
 
     (pact
