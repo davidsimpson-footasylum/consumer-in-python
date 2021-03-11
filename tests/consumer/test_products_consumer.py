@@ -30,8 +30,8 @@ def consumer():
 
 @pytest.fixture(scope='session')
 def pact(request):
-    pact = Consumer('pactflow-example-consumer-python').has_pact_with(
-        Provider('pactflow-example-provider-python'), host_name=PACT_MOCK_HOST, port=PACT_MOCK_PORT,
+    pact = Consumer('consumer-in-python').has_pact_with(
+        Provider('provider-in-dotnet'), host_name=PACT_MOCK_HOST, port=PACT_MOCK_PORT,
         pact_dir="./pacts", log_dir="./logs")
     try:
         print('start service')
