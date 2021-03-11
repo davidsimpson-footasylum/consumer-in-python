@@ -30,8 +30,8 @@ def consumer():
 
 @pytest.fixture(scope='session')
 def pact(request):
-    pact = Consumer('consumer-in-python').has_pact_with(
-        Provider('provider-in-dotnet'), host_name=PACT_MOCK_HOST, port=PACT_MOCK_PORT,
+    pact = Consumer('pactflow-example-consumer-python').has_pact_with(
+        Provider('pactflow-example-provider-python'), host_name=PACT_MOCK_HOST, port=PACT_MOCK_PORT,
         pact_dir="./pacts", log_dir="./logs")
     try:
         print('start service')
@@ -41,12 +41,7 @@ def pact(request):
         print('stop service')
         pact.stop_service()
 
-# def test_get_product(pact, consumer):
-    # expected = {
-        # 'id': "27",
-        # 'name': 'Margharita',
-        # 'type': 'Pizza'
-   def test_get_product(pact, consumer):
+def test_get_product(pact, consumer):
     expected = {
         'id': "27",
         'name': 'burger',
